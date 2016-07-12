@@ -1,0 +1,35 @@
+extends ../node_modules/jade-bootstrap/_bootstrap
+append styles
+	link(rel='stylesheet', href='/stylesheets/cover.css')
+append scripts
+	script(src="/javascripts/upload.js")
+
+
+block body
+	.site-wrapper
+		.site-wrapper-inner
+			.cover-container
+				.masthead.clearfix
+					.inner
+						h3.masthead-brand #{title}
+						nav
+							ul.nav.masthead-nav
+								li.active 
+									a(href="#") Home
+								li
+									a(href="#") Features
+								li
+									a(href="#") Contact
+				.inner.cover
+					h1.cover-heading #{title}.
+					p.lead Welcome to #{title}.
+					a(href="#", class="btn btn-lg btn-default") 下载模板
+					p.lead 下载模板后，上传excel文件，即可获得xml，复制即可
+					form#uploadForm.form-inline(enctype="multipart/form-data")
+						input.form-control(type='file', name='excelFile')
+						button#upload.btn.btn-default(type='button') 提交
+					textarea#xml-content.form-control(row="10")
+
+				.mastfoot
+					.inner
+						p XML Build tool for validator , by ljs.
